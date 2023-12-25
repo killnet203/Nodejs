@@ -1,0 +1,5 @@
+//config complier
+
+{
+    "presets": ["@babel/preset-env"]
+}
