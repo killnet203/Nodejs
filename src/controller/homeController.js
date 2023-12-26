@@ -1,7 +1,20 @@
+import db from "../models/index";
 
-let getHomePage = (req, res) => {
+//take information from database
+let getHomePage = async (req, res) => {
+    try {
+        let data = await db.User.findAll();
+        console.log('--------------------------------------------------------');
+        console.log(data);
+        console.log('--------------------------------------------------------');
+        return res.render("homepage.ejs", {
+            data: JSON.stringify(data)
+        });
 
-    return res.render("homepage.ejs");
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 let getAboutPage = (req, res) => {
